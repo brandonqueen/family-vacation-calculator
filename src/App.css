@@ -1,1 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+.App {
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+.page {
+  display: flex;
+  height: 100vh;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(246, 246, 246);
+}
+
+.card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 5px;
+  border-width: .5px;
+  border-color: rgb(236, 231, 231);
+  border-style: solid;
+  min-width: 20vw;
+}
+
+/*.card:after {
+  content: "";
+  background-color: #232323;
+  position: absolute;
+  width: 3px;
+  height: 100px;
+  left: 50%;
+  margin: 5px;
+}*/
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-weight: 900;
+  color: cornflowerblue;
+  font-size: 50px;
+  margin-bottom: 5vh;
+
+}
+
+h2 {
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.patCap {
+  text-align: center;
+  padding: 20px;
+  font-weight: medium;
+}
+
+.avatar {
+  width: 23vh;
+  height: 23vh;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+
 
