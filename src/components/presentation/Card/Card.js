@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-function Card({children}) {
-  return (
-    <div className="card">
-        {children}
-    </div>
-  )
+function Card({ children, onClick }) {
+	return (
+		<div className="card" onClick={onClick}>
+			{children}
+		</div>
+	);
 }
 
-export default Card
+export default Card;

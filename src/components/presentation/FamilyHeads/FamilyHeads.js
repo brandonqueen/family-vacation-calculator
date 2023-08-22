@@ -40,7 +40,6 @@ function FamilyHeads() {
 			<Card>
 				<h2>{person.name}</h2>
 				<img src={person.imgSrc} className="avatar" />
-				<text className="Cap">{person.name}'s Family Expenses</text>
 			</Card>
 		</li>
 	));
