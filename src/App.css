@@ -7,7 +7,7 @@
 
 .page {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   flex: 1;
   flex-direction: column;
   align-items: center;
@@ -16,12 +16,33 @@
 
 .card {
   background-color: white;
+  width: 250px;
+  padding: 20px 40px;
+  margin: 4vh;
+
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  
   border-radius: 15px;
-  padding: 5px;
-  border-width: .5px;
+  border-width: .8px;
   border-color: rgb(236, 231, 231);
   border-style: solid;
-  min-width: 20vw;
+  box-shadow: 2px 5px 10px 2px rgba(0,0,0,.2);
+  
+}
+
+li {
+  list-style-type: none;
+  display: inline-block;
+  
+}
+
+ul {
+  -webkit-padding-start: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /*.card:after {
@@ -42,26 +63,34 @@ section {
 
 h1 {
   font-weight: 900;
-  color: cornflowerblue;
-  font-size: 50px;
-  margin-bottom: 5vh;
+  font-size: 40px;
+  margin-bottom: 1vh;
+  text-align: center;
 
 }
 
 h2 {
   font-weight: 900;
   font-size: 30px;
+  margin: 5px;
 }
 
 .patCap {
   text-align: center;
   padding: 20px;
   font-weight: medium;
+  font-style: italic;
+}
+
+.Cap {
+  text-align: center;
+  padding: 20px;
+  font-weight: medium;
 }
 
 .avatar {
-  width: 23vh;
-  height: 23vh;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
 }
