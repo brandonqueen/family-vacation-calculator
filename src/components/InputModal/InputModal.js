@@ -1,10 +1,11 @@
 import React from "react";
 import "./InputModal.css";
 
-function InputModal({ famHead }) {
+function InputModal({ onClick, selectedFamily }) {
 	return (
 		<div className="modal">
-			<h2>**Family Member**'s Expenses</h2>
+			<p style={{ fontWeight: "bold", fontSize: 25 }}>{selectedFamily.name}</p>
+			<button onClick={onClick}>X</button>
 		</div>
 	);
 }

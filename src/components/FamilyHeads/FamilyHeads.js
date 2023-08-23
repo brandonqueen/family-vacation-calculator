@@ -37,7 +37,12 @@ function FamilyHeads({ onClick }) {
 	];
 
 	const familyList = families.map((person) => (
-		<li key={person.id}>
+		<li
+			key={person.id}
+			onClick={() => {
+				onClick(person);
+				console.log(person);
+			}}>
 			<Card>
 				<h2>{person.name}</h2>
 				<img src={person.imgSrc} className="avatar" alt="koch family member" />
@@ -45,7 +50,7 @@ function FamilyHeads({ onClick }) {
 		</li>
 	));
 
-	return <ul onClick={onClick}>{familyList}</ul>;
+	return <ul>{familyList}</ul>;
 }
 
 export default FamilyHeads;

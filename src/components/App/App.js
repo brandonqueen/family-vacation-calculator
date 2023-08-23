@@ -6,17 +6,21 @@ import "./App.css";
 
 function App() {
 	const [modalIsOpen, setModalIsOpen] = useState(false);
+	const [selectedFamily, setSelectedFamily] = useState(null);
 
-	function modalToggle(event) {
+	const modalToggle = (person) => {
 		setModalIsOpen(() => !modalIsOpen);
+		setSelectedFamily(person);
 	}
 
 	return (
 		<div className="page">
-			{modalIsOpen && <InputModal />}
+			{modalIsOpen && (
+				<InputModal selectedFamily={selectedFamily} onClick={modalToggle} />
+			)}
 			<h1>Koch Family Vacation Calculator</h1>
 			<Patriarchs />
-			<FamilyHeads onClick={modalToggle} />
+			<FamilyHeads onClick={(person) => modalToggle(person)} />
 		</div>
 	);
 }
