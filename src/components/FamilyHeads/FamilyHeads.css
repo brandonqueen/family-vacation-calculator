@@ -1,0 +1,12 @@
+li {
+    list-style-type: none;
+    display: inline-block;
+    
+  }
+  
+  ul {
+    -webkit-padding-start: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }

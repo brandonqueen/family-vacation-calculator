@@ -1,10 +1,11 @@
 import React from "react";
 import Card from "../Card/Card";
-import JoelImg from "../../../assets/images/Joel.jpg";
-import JoshImg from "../../../assets/images/Josh.jpg";
-import KatieImg from "../../../assets/images/Katie.jpg";
-import MelodyImg from "../../../assets/images/Melody.jpg";
-import EvanImg from "../../../assets/images/Evan.jpg";
+import "./FamilyHeads.css";
+import JoelImg from "../../assets/images/Joel.jpg";
+import JoshImg from "../../assets/images/Josh.jpg";
+import KatieImg from "../../assets/images/Katie.jpg";
+import MelodyImg from "../../assets/images/Melody.jpg";
+import EvanImg from "../../assets/images/Evan.jpg";
 
 function FamilyHeads({ onClick }) {
 	const families = [

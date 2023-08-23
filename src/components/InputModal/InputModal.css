@@ -1,0 +1,25 @@
+.modal {
+    position: fixed;
+    width: 90vw;
+    min-height: 90vh;
+    margin: 2vh;
+    padding: 2vh;
+    display: flex;
+    justify-content: center;
+    
+    background-color: white;
+  
+    border-radius: 15px;
+    border-width: .8px;
+    border-color: rgb(236, 231, 231);
+    border-style: solid;
+    box-shadow: 2px 5px 10px 2px rgba(0,0,0,.2);
+  }
+
+  h1 {
+    font-weight: 900;
+    font-size: 20px;
+    margin: 2vh;
+    text-align: center;
+    letter-spacing: -.9px;
+  }

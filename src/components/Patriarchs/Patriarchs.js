@@ -1,6 +1,7 @@
 import React from "react";
-import PatriarchImg from "../../../assets/images/Patriarchs.jpg";
+import PatriarchImg from "../../assets/images/Patriarchs.jpg";
 import Card from "../Card/Card";
+import "./Patriarchs.css";
 
 function Patriarchs() {
 	const handleClick = () => {

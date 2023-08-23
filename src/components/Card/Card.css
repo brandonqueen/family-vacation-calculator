@@ -1,0 +1,17 @@
+.card {
+    background-color: white;
+    width: 250px;
+    padding: 20px 40px;
+    margin: 4vh;
+  
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+    border-radius: 15px;
+    border-width: .8px;
+    border-color: rgb(236, 231, 231);
+    border-style: solid;
+    box-shadow: 2px 5px 10px 2px rgba(0,0,0,.2);
+  }

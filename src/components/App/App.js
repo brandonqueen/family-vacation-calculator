@@ -1,8 +1,8 @@
-import "./App.css";
 import React, { useState } from "react";
-import FamilyHeads from "./components/presentation/FamilyHeads/FamilyHeads";
-import Patriarchs from "./components/presentation/Patriarchs/Patriarchs.js";
-import InputModal from "./components/presentation/InputModal/InputModal";
+import FamilyHeads from "../FamilyHeads/FamilyHeads";
+import Patriarchs from "../Patriarchs/Patriarchs";
+import InputModal from "../InputModal/InputModal";
+import "./App.css";
 
 function App() {
 	const [modalIsOpen, setModalIsOpen] = useState(false);
