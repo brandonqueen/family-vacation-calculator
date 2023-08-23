@@ -1,7 +1,7 @@
 import React from "react";
 
-function InputModal() {
-	return <div className="modal"> Testing </div>
+function InputModal({ famHead }) {
+	return <div className="modal">{famHead}'s Info</div>;
 }
 
 export default InputModal;

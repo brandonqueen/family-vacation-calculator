@@ -6,7 +6,7 @@ import KatieImg from "../../../assets/images/Katie.jpg";
 import MelodyImg from "../../../assets/images/Melody.jpg";
 import EvanImg from "../../../assets/images/Evan.jpg";
 
-function FamilyHeads() {
+function FamilyHeads({ onClick }) {
 	const families = [
 		{
 			id: 0,
@@ -39,12 +39,12 @@ function FamilyHeads() {
 		<li key={person.id}>
 			<Card>
 				<h2>{person.name}</h2>
-				<img src={person.imgSrc} className="avatar" />
+				<img src={person.imgSrc} className="avatar" alt="koch family member" />
 			</Card>
 		</li>
 	));
 
-	return <ul>{familyList}</ul>;
+	return <ul onClick={onClick}>{familyList}</ul>;
 }
 
 export default FamilyHeads;
