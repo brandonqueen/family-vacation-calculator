@@ -3,10 +3,14 @@ import "./InputModal.css";
 
 function InputModal({ onClick, selectedFamily }) {
 	return (
-		<div className="modal">
-			<p style={{ fontWeight: "bold", fontSize: 25 }}>{selectedFamily.name}</p>
-			<button onClick={onClick}>X</button>
-		</div>
+		<>
+			<div className="modalFullscreen" onClick={onClick}></div>
+			<div className="modal">
+				<button className="modalButton" onClick={onClick}>X</button>
+				<text className="modalTitle">{selectedFamily.name}'s Expenses</text>
+
+			</div>
+		</>
 	);
 }
 
