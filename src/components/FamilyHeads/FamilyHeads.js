@@ -7,7 +7,7 @@ import KatieImg from "../../assets/images/Katie.jpg";
 import MelodyImg from "../../assets/images/Melody.jpg";
 import EvanImg from "../../assets/images/Evan.jpg";
 
-function FamilyHeads({ onClick }) {
+function FamilyHeads({ onModalToggle }) {
 	const families = [
 		{
 			id: 0,
@@ -40,8 +40,7 @@ function FamilyHeads({ onClick }) {
 		<li
 			key={person.id}
 			onClick={() => {
-				onClick(person);
-				console.log(person);
+				onModalToggle(person);
 			}}>
 			<Card>
 				<h2>{person.name}</h2>
