@@ -32,20 +32,28 @@ const personInputSlice = createSlice({
 	name: "personInput",
 	initialState: initialState,
 	reducers: {
-		addEaters: (state, action) => {
-			return state.personInput.map((obj) => {
+		updateEaters: (state, action) => {
+			state.map((obj) => {
 				if (obj.name === action.payload.name) {
 					return (obj.eaters = action.payload.eaters);
 				}
+				return state;
 			});
 		},
 		addExpense: (state, action) => {},
 		removeExpense: (state, action) => {},
-		clearExpenses: (state) => {},
+		clearExpenses: (state, action) => {
+			state.map((obj) => {
+				if (obj.name === action.payload.name) {
+					return (obj.expenses = []);
+				}
+				return state;
+			});
+		},
 	},
 });
 
-export const { addEaters, addExpense, removeExpense, clearExpenses } =
+export const { updateEaters, addExpense, removeExpense, clearExpenses } =
 	personInputSlice.actions;
 
 export default personInputSlice.reducer;

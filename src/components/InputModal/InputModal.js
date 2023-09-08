@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./InputModal.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
-	addEaters,
+	updateEaters,
 	addExpense,
 	removeExpense,
 	clearExpenses,
 } from "../../features/personInput/personInputSlice";
 
 function InputModal({ onModalClick, selectedFamily }) {
+	const [eatersInput, setEatersInput] = useState(null);
+
 	const eaters = useSelector((state) =>
 		state.personInput.map((obj) => {
 			if (obj.name === selectedFamily.name) {
@@ -16,7 +18,27 @@ function InputModal({ onModalClick, selectedFamily }) {
 			}
 		})
 	);
-	const expenses = useSelector((state) => state.personInput.expenses);
+	const expenses = useSelector((state) =>
+		state.personInput.map((obj) => {
+			if (obj.name === selectedFamily.name) {
+				return obj.expenses;
+			}
+		})
+	);
+	const dispatch = useDispatch();
+
+	const handleEatersClick = () => {
+		const eatersValue = Number(eatersInput);
+		if (eatersValue === "NaN") {
+			alert("Please type a number.");
+			return;
+		} else {
+			dispatch(
+				updateEaters({ name: selectedFamily.name, eaters: eatersValue })
+			);
+		}
+		setEatersInput(null);
+	};
 
 	return (
 		<>
@@ -53,8 +75,18 @@ function InputModal({ onModalClick, selectedFamily }) {
 						</text>
 						<div className="expenseInputSubsection">
 							<text className="expensesText">Eaters: {eaters}</text>
-							<input className="input"></input>
-							<button className="button">Update Eaters</button>
+							<input
+								className="input"
+								type="text"
+								placeholder="update number of eaters"
+								value={eatersInput}
+								onChange={(e) => {
+									setEatersInput(e.target.value);
+								}}
+							/>
+							<button className="button" onClick={handleEatersClick}>
+								Update Eaters
+							</button>
 						</div>
 					</div>
 					<div className="lineDivider"></div>
