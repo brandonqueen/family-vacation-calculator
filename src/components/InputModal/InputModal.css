@@ -2,11 +2,13 @@
     position: fixed;
     width: 90vw;
     min-height: 90vh;
+    max-height: 90vh;
     margin: 2vh;
     padding: 2vh;
     display: flex;
     flex-direction: column;
     background-color: white;
+    overflow: scroll;
   
     border-radius: 15px;
     border-width: .8px;
@@ -19,48 +21,59 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    opacity: 0%;
+    background-color:rgba(70, 70, 70, .2);
   }
 
   .modalButton {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     align-self: flex-end;
-    margin: 10px;
-    width: 37px;
-    height: 37px;
+    
+    padding: 8px;
     background-color: rgba(219, 219, 219, .5);
+    
     border-radius: 50%;
     border-width: 1px;
     border-color: rgb(137, 137, 137);
     border-style:none;
+    
     font-size: 17px;
     font-weight: 800;
     color: rgb(70, 70, 70);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
     cursor: pointer;
+  }
+
+  .modalButton:hover {
+    background-color: rgba(160, 160, 160, 0.5);
   }
 
   .headerBar {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    flex: 1;
     position: relative;
+    flex-wrap: wrap;
   }
 
   .modalTitle {
     font-weight: 800;
     font-size: 30px;
     letter-spacing: -.9px;
-    align-self: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
     text-align: center;
-    flex: 1;
+    margin-inline: 24px;
   }
 
   .avatarSmall {
-    width: 80px;
-    height: 80px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
     object-fit: cover;
     
@@ -68,14 +81,46 @@
     left: 30px;
     top: 50%;
     transform: translateY(-50%);
+    margin-bottom: 16px;
+    }
+
+    @media (max-width: 599px) {
+      .headerBar {
+        flex-direction: column;
+        align-items: flex-start;
+        position: static;
+      }
+    
+      .modalTitle {
+        position: static;
+        align-self: center;
+      }
+    
+      .avatarSmall {
+        position: static;
+        align-self: center;
+        margin: 16px 8px 8px 8px;
+        }
+    }
+
+    .lineDivider {
+      width: .5px;
+      background-color: darkgrey;
+      margin-inline: 24px; 
+    }
+
+    @media (max-width: 877px) {
+      .lineDivider {
+        display: none;
+      }
     }
 
     .modalExpensesSection {
       padding: 20px;
       margin-top: 20px;
       display: flex;
-      flex: 1;
       flex-direction: row;
+      flex-wrap: wrap;
     }
 
    .expenseAreaHeader {
@@ -86,7 +131,10 @@
     }
 
     .inputSection {
-      width: 50%;
+      flex: 1;
+      min-width: 350px;
+      overflow: scroll;
+      flex-wrap: wrap;
     }
 
     .expenseInputSubsection {
@@ -98,22 +146,23 @@
 
     .expensesText {
       font-weight: 600;
-      padding: 8px;
+      padding: 8px 24px 8px 0px
     }
 
     .input {
-      padding: 8px;
+      padding: 6px;
       margin-bottom: 8px;
-      width: 50%;
+      width: 200px;
       border-color: rgb(137, 137, 137);
       border-radius: 8px;
       border-width: 1px;
     }
 
     .button {
-      padding: 8px;
+      padding: 6px;
       width: 25%;
-      margin: 16px;
+      min-width: 50px;
+      margin: 26px 16px 16px 0px;
       background-color: rgba(0,0,0,0);
       font-size: 12px;
       font-weight: bold;
@@ -135,7 +184,16 @@
     }
 
     .loggedExpensesSection {
-      width: 50%;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 350px;
+    }
+
+    @media (max-width: 599px) {
+      .loggedExpensesSection {
+       margin-top: 32px;
+      }
     }
 
     .loggedExpensesSubsection {
@@ -143,7 +201,6 @@
       flex: 1;
       flex-direction: column;
       padding-left: 16px;
-      overflow: scroll;
     }
 
     

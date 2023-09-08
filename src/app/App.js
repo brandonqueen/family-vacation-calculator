@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FamilyHeads from "../components/FamilyHeads/FamilyHeads";
 import Patriarchs from "../components/Patriarchs/Patriarchs";
-import InputModal from "../features/inputModal/InputModal";
+import InputModal from "../components/InputModal/InputModal";
 import "./App.css";
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
 			<h1>Koch Family Vacation Calculator</h1>
 			<Patriarchs />
 			<FamilyHeads onModalClick={modalToggle} />
+			<div classname="Output Area">{/* place totals component here */}</div>
 		</div>
 	);
 }
