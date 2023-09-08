@@ -1,7 +1,7 @@
 li {
     list-style-type: none;
     display: inline-block;
-    
+    cursor: pointer;
   }
   
   ul {
