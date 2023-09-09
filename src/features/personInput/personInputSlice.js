@@ -5,26 +5,31 @@ const initialState = [
 		name: "Joel",
 		eaters: 5,
 		expenses: [],
+		total: 0,
 	},
 	{
 		name: "Josh",
 		eaters: 5,
 		expenses: [],
+		total: 0,
 	},
 	{
 		name: "Katie",
 		eaters: 3,
 		expenses: [],
+		total: 0,
 	},
 	{
 		name: "Melody",
 		eaters: 1,
 		expenses: [],
+		total: 0,
 	},
 	{
 		name: "Evan",
 		eaters: 1,
 		expenses: [],
+		total: 0,
 	},
 ];
 
@@ -46,18 +51,41 @@ const personInputSlice = createSlice({
 			);
 			state[personIndex].expenses.push(action.payload.expense);
 		},
-		removeExpense: (state, action) => {},
+		removeExpense: (state, action) => {
+			const personIndex = state.findIndex(
+				(obj) => obj.name === action.payload.name
+			);
+			const indexOfObjToRemove = state[personIndex].expenses.findIndex(
+				(obj) => obj.id === action.payload.id
+			);
+			state[personIndex].expenses.splice(indexOfObjToRemove, 1);
+		},
 		clearExpenses: (state, action) => {
 			const personIndex = state.findIndex(
 				(obj) => obj.name === action.payload.name
 			);
 			state[personIndex].expenses = [];
 		},
+		updateTotals: (state) => {
+			let total;
+			state.map((personObj) => {
+				const values = personObj.expenses.map((expense) => {
+					return expense.amount;
+				});
+				const sum = values.reduce((acc, currentValue) => acc + currentValue, 0);
+				personObj.total = sum;
+			});
+		},
 	},
 });
 
-export const { updateEaters, addExpense, removeExpense, clearExpenses } =
-	personInputSlice.actions;
+export const {
+	updateEaters,
+	addExpense,
+	removeExpense,
+	clearExpenses,
+	updateTotals,
+} = personInputSlice.actions;
 
 export default personInputSlice.reducer;
 
@@ -78,7 +106,8 @@ state: {
 				expenseName: Kroger
 				amount: 60
 			},
-        ]
+        ],
+		total: 160,
 	},
 	],
 }

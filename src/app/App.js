@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FamilyHeads from "../components/FamilyHeads/FamilyHeads";
 import Patriarchs from "../components/Patriarchs/Patriarchs";
 import InputModal from "../components/InputModal/InputModal";
+import Results from "../components/Results/Results";
 import "./App.css";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
 			<Patriarchs />
 			<FamilyHeads onModalClick={modalToggle} />
 			<div classname="Output Area">{/* place totals component here */}</div>
+			<Results />
 		</div>
 	);
 }

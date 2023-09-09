@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./InputModal.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -6,13 +6,14 @@ import {
 	addExpense,
 	removeExpense,
 	clearExpenses,
+	updateTotals,
 } from "../../features/personInput/personInputSlice";
 
 function InputModal({ onModalClick, selectedFamily }) {
 	//Local state
-	const [eatersInput, setEatersInput] = useState(null);
+	const [eatersInput, setEatersInput] = useState("");
 	const [expenseInput, setExpenseInput] = useState("");
-	const [amountInput, setAmountInput] = useState(null);
+	const [amountInput, setAmountInput] = useState("");
 
 	//Redux state getters/setters
 	const eaters = useSelector((state) => {
@@ -29,10 +30,25 @@ function InputModal({ onModalClick, selectedFamily }) {
 		return state.personInput[personIndex].expenses;
 	});
 
+	const total = useSelector((state) => {
+		const personIndex = state.personInput.findIndex(
+			(obj) => obj.name === selectedFamily.name
+		);
+		if (state.personInput[personIndex].total === 0) {
+			return "0.00";
+		} else {
+			return state.personInput[personIndex].total;
+		}
+	});
+
 	const dispatch = useDispatch();
 
-	//handle click functions
-	const handleEatersClick = () => {
+	useEffect(() => {
+		dispatch(updateTotals());
+	}, [expenses, total]);
+
+	//handle click/"Enter" functions
+	const handleEatersInput = () => {
 		const eatersValue = Math.round(Number(eatersInput) * 2) / 2;
 		if (Number.isNaN(eatersValue)) {
 			alert("Please type a number.");
@@ -44,12 +60,12 @@ function InputModal({ onModalClick, selectedFamily }) {
 				updateEaters({ name: selectedFamily.name, eaters: eatersValue })
 			);
 		}
-		setEatersInput(null);
+		setEatersInput("");
 	};
 
-	const handleExpenseInputClick = () => {
+	const handleExpenseInput = () => {
 		const expenseValue = String(expenseInput);
-		const amountValue = Math.round(Number(amountInput) * 10) / 10;
+		const amountValue = Math.round(Number(amountInput) * 100) / 100;
 		if (!expenseInput || !amountInput) {
 			alert("Please input an expense and an amount.");
 		} else if (Number.isNaN(amountValue)) {
@@ -68,51 +84,48 @@ function InputModal({ onModalClick, selectedFamily }) {
 				})
 			);
 		}
+		setExpenseInput("");
+		setAmountInput("");
 	};
 
-	const handleExpenseRemoveClick = () => {
-		alert("you clicked to remove expense!");
+	const handleExpenseRemoveClick = (object) => {
+		dispatch(removeExpense({ name: selectedFamily.name, id: object.id }));
 	};
 
 	const handleExpenseClearClick = () => {
 		dispatch(clearExpenses({ name: selectedFamily.name }));
 	};
 
-	//Function to render the list of exepenses
-	const ToRenderIfTrue = ({ expenseName, expenseAmount }) => {
+	//Functions to render the list of exepenses
+	const ToRenderIfTrue = ({ object }) => {
 		return (
-			<li>
-				<text className="expensesText">{expenseName}:</text>
-				<text className="expensesText">${expenseAmount}</text>
-				<button className="button" onClick={handleExpenseRemoveClick}>
+			<li className="expenseRowLi">
+				<div className="expenseRowContent">
+					<text className="expensesText">{object.expenseName}:</text>
+					<text className="expensesText">${object.amount}</text>
+				</div>
+				<button
+					className="removeExpenseButton"
+					onClick={() => handleExpenseRemoveClick(object)}>
 					Remove Expense
 				</button>
 			</li>
 		);
 	};
 
-	/* <text className="expensesText">No expenses to show here yet! 👀</text> */
-
 	const RenderExpenses = () => {
 		return (
-			<div className="loggedExpense">
-				<ul>
-					{expenses[0] ? (
-						expenses.map((obj) => (
-							<ToRenderIfTrue
-								expenseName={obj.expenseName}
-								expenseAmount={obj.amount}
-							/>
-						))
-					) : (
-						<text className="expensesText">
-							No expenses to show here yet! 👀
-						</text>
-					)}
-				</ul>
-			</div>
+			<ul className="expenseList">
+				{expenses[0] ? (
+					expenses.map((obj) => <ToRenderIfTrue object={obj} />)
+				) : (
+					<text className="expensesText">No expenses to show here yet! 👀</text>
+				)}
+			</ul>
 		);
 	};
+
+	const expensesTotalled = () => {};
 
 	//JSX for UI
 	return (
@@ -148,7 +161,12 @@ function InputModal({ onModalClick, selectedFamily }) {
 								type="text"
 								placeholder="category or place of purchase"
 								value={expenseInput}
-								onChange={(e) => setExpenseInput(e.target.value)}></input>
+								onChange={(e) => setExpenseInput(e.target.value)}
+								onKeyDown={(e) => {
+									if (e.key === "Enter") {
+										handleExpenseInput();
+									}
+								}}></input>
 							<text className="expensesText">Amount Spent:</text>
 							<input
 								className="input"
@@ -157,8 +175,13 @@ function InputModal({ onModalClick, selectedFamily }) {
 								value={amountInput}
 								onChange={(e) => {
 									setAmountInput(e.target.value);
+								}}
+								onKeyDown={(e) => {
+									if (e.key === "Enter") {
+										handleExpenseInput();
+									}
 								}}></input>
-							<button className="button" onClick={handleExpenseInputClick}>
+							<button className="button" onClick={handleExpenseInput}>
 								Add Expense
 							</button>
 						</div>
@@ -176,8 +199,13 @@ function InputModal({ onModalClick, selectedFamily }) {
 								onChange={(e) => {
 									setEatersInput(e.target.value);
 								}}
+								onKeyDown={(e) => {
+									if (e.key === "Enter") {
+										handleEatersInput();
+									}
+								}}
 							/>
-							<button className="button" onClick={handleEatersClick}>
+							<button className="button" onClick={handleEatersInput}>
 								Update Eaters
 							</button>
 						</div>
@@ -187,7 +215,7 @@ function InputModal({ onModalClick, selectedFamily }) {
 						<div>
 							<text className="expenseAreaHeader">Expenses Logged</text>
 						</div>
-						<div className="loggedExpensesSubsection">
+						<div className="loggedExpensesParentContainer">
 							<RenderExpenses />
 						</div>
 						<div
@@ -205,7 +233,7 @@ function InputModal({ onModalClick, selectedFamily }) {
 									fontWeight: "900",
 									fontSize: 20,
 								}}>
-								Total: $300
+								Total: ${total}
 							</text>
 						</div>
 					</div>

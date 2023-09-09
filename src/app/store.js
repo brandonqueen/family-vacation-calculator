@@ -24,7 +24,8 @@ state: {
 				expenseName: Kroger
 				amount: 60
 			},
-        ]
+        ],
+		total: 160,
 	},
 	],
 }
