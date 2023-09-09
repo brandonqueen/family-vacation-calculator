@@ -2,6 +2,31 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+    align-items: center;
+    justify-content: flex-start;
     width: 100vw;
-    min-height: 500px;
+    min-height: 800px;
 }
+
+.resultsMainCard {
+    width: 85vw;
+    margin: 32px;
+    padding: 20px 40px;
+    min-height: 500px;
+  
+    display: flex;
+    justify-content: center;
+    
+    border-radius: 15px;
+    border-width: .8px;
+    border-color: rgb(236, 231, 231);
+    border-style: solid;
+    box-shadow: 2px 5px 10px 2px rgba(0,0,0,.2);
+  }
+
+  .resultsTitle {
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: -.9px;
+    text-align: center;
+  }

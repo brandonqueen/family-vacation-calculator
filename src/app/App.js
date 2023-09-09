@@ -25,7 +25,6 @@ function App() {
 			<h1>Koch Family Vacation Calculator</h1>
 			<Patriarchs />
 			<FamilyHeads onModalClick={modalToggle} />
-			<div classname="Output Area">{/* place totals component here */}</div>
 			<Results />
 		</div>
 	);
