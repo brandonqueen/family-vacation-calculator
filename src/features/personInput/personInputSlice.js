@@ -40,15 +40,18 @@ const personInputSlice = createSlice({
 				return state;
 			});
 		},
-		addExpense: (state, action) => {},
+		addExpense: (state, action) => {
+			const personIndex = state.findIndex(
+				(obj) => obj.name === action.payload.name
+			);
+			state[personIndex].expenses.push(action.payload.expense);
+		},
 		removeExpense: (state, action) => {},
 		clearExpenses: (state, action) => {
-			state.map((obj) => {
-				if (obj.name === action.payload.name) {
-					return (obj.expenses = []);
-				}
-				return state;
-			});
+			const personIndex = state.findIndex(
+				(obj) => obj.name === action.payload.name
+			);
+			state[personIndex].expenses = [];
 		},
 	},
 });
@@ -58,34 +61,37 @@ export const { updateEaters, addExpense, removeExpense, clearExpenses } =
 
 export default personInputSlice.reducer;
 
-/*
+/* 
+~~~ State Example ~~~
 state: {
-    personInput: {
-        {name: "Joel",
+    personInput: [{
+		name: "Joel",
         eaters: 5,
         expenses: [
-            {
-                id: Date.now()
-                expense: Costco
-                cost: 100
-            },
-            {
-                id: Date.now()
-                expense: Kroger
-                cost: 60
-            },
-        ]},
-    },
+			{
+				id: Date.now()
+				expenseName: Costco
+				amount: 100
+			},
+			{
+				id: Date.now()
+				expenseName: Kroger
+				amount: 60
+			},
+        ]
+	},
+	],
 }
 */
 
 /*
+~~~ Expense action example ~~~
 action.payload = { 
     name: Joel, 
     expense: {
         id: Date.now()
-        expense: Costco
-        cost: 100
+        expenseName: Costco
+        amount: 100
     }
 }
 */

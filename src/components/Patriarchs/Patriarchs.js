@@ -13,7 +13,7 @@ function Patriarchs() {
 	return (
 		<Card onClick={handleClick}>
 			<h2>The Patriarchs</h2>
-			<img src={PatriarchImg} className="avatar" />
+			<img src={PatriarchImg} className="avatar" alt="patriarch image"/>
 			<text className="patCap">
 				**Exempt from bill-split!** (image here for honorary purposes)
 			</text>
