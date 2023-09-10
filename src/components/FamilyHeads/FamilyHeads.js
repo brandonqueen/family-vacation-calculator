@@ -20,6 +20,7 @@ function FamilyHeads({ onModalClick }) {
 					fontSize: 24,
 					fontWeight: "800",
 					margin: "24px",
+					textAlign: "center",
 				}}>
 				* * Click On Your Family's Card Below to Input Expenses and Eaters * *
 			</text>

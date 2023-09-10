@@ -11,17 +11,28 @@
 .resultsMainCard {
     width: 85vw;
     margin: 32px;
-    padding: 20px 40px;
+    padding: 20px 40px 50px 40px;
     min-height: 500px;
+    background-color: rgb(47, 110, 210);
   
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    flex-wrap: wrap;
     
     border-radius: 15px;
     border-width: .8px;
-    border-color: rgb(236, 231, 231);
+    border-color: rgb(47, 111, 211);
     border-style: solid;
-    box-shadow: 2px 5px 10px 2px rgba(0,0,0,.2);
+    box-shadow: 2px 5px 15px 2px rgba(0,0,0,.3);
+  }
+
+  .TitleBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
   }
 
   .resultsTitle {
@@ -29,4 +40,125 @@
     font-size: 30px;
     letter-spacing: -.9px;
     text-align: center;
+    color: white;
+  }
+
+  .resultsOutputArea {
+    display:flex;
+    flex:1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 8px 0px;
+  }
+
+  .globalTotalsArea {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-right: 8px;
+    border-radius: 12px;
+    background-color: rgb(31, 73, 140);
+  }
+
+  .breakdownByFamilyArea {
+    display: flex;
+    flex:3;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-left: 8px;
+    border-radius: 12px;
+    background-color: rgb(31, 73, 140);
+  }
+
+  .outputAreaHeader {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+    padding: 8px;
+    color: white;
+  }
+
+  .globalTotalsList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px;
+    margin: 0;
+  }
+
+  .globalTotalsRow {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 16px 8px 16px 16px;
+  }
+
+  .globalTotalsText {
+    font-size: 20px;
+    color: white;
+    font-weight: 800;
+  }
+
+  .personBreakdownList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px;
+    margin: 0;
+  }
+
+  .personBreakdownListItem {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 24px 16px;
+  }
+
+  .listAvatar {
+    min-width: 40px;
+    max-width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: 1;
+    margin-inline: 16px;
+  }
+
+  .personName {
+    font-size: 24px;
+    color: white;
+    font-weight: 900;
+    flex: 1;
+    margin-inline: 16px;
+  }
+
+  .breakdownPersonData {
+    font-size: 18px;
+    color: white;
+    flex-wrap: wrap;
+    font-weight: 700;
+    flex: 1;
+    margin-inline: 16px;
+  }
+
+  @media (max-width: 780px) {
+
+
+    
+    /* * * * Update Styles for Mobile Here * * *  */
+
+
+
+
   }

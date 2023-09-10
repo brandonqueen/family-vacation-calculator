@@ -70,7 +70,7 @@ function InputModal({ onModalClick, selectedFamily }) {
 			alert("Please input an expense and an amount.");
 		} else if (Number.isNaN(amountValue)) {
 			alert("Please make sure the amount is a number!");
-		} else if (expenseValue < 0) {
+		} else if (amountValue <= 0) {
 			alert("Please input a positive number");
 		} else {
 			dispatch(
@@ -155,7 +155,7 @@ function InputModal({ onModalClick, selectedFamily }) {
 					<div className="inputSection" name="form">
 						<text className="expenseAreaHeader">Input Expenses</text>
 						<div className="expenseInputSubsection">
-							<text className="expensesText">Expense/Place of Purchase:</text>
+							<text className="expensesText">Expense/Place of Purchase</text>
 							<input
 								className="input"
 								type="text"
@@ -167,7 +167,7 @@ function InputModal({ onModalClick, selectedFamily }) {
 										handleExpenseInput();
 									}
 								}}></input>
-							<text className="expensesText">Amount Spent:</text>
+							<text className="expensesText">Amount Spent</text>
 							<input
 								className="input"
 								type="text"
@@ -218,23 +218,11 @@ function InputModal({ onModalClick, selectedFamily }) {
 						<div className="loggedExpensesParentContainer">
 							<RenderExpenses />
 						</div>
-						<div
-							style={{
-								display: "flex",
-								flexDirection: "row",
-								justifyContent: "space-between",
-							}}>
+						<div className="bottomRow">
 							<button className="button" onClick={handleExpenseClearClick}>
 								Clear All
 							</button>
-							<text
-								style={{
-									alignSelf: "center",
-									fontWeight: "900",
-									fontSize: 20,
-								}}>
-								Total: ${total}
-							</text>
+							<text className="totalText">Total: ${total}</text>
 						</div>
 					</div>
 				</div>
