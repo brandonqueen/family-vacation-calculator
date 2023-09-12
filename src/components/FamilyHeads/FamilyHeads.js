@@ -5,7 +5,7 @@ import "./FamilyHeads.css";
 
 function FamilyHeads({ onModalClick }) {
 	const familyList = people.map((person) => (
-		<li key={person.id} onClick={() => onModalClick(person)}>
+		<li className="personCard" key={person.id} onClick={() => onModalClick(person)}>
 			<Card>
 				<h2>{person.name}</h2>
 				<img src={person.imgSrc} className="avatar" alt="koch family member" />

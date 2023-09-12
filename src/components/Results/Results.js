@@ -6,9 +6,12 @@ import {
 	faHippo,
 	faCreditCard,
 	faMoneyBillTransfer,
+	faArrowRight,
+	faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import JoelImg from "../../assets/images/Joel.jpg";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { people } from "../../const/people";
 
 function Results() {
 	//Access state
@@ -27,6 +30,12 @@ function Results() {
 		fontSize: "32px",
 		color: "rgb(246,196,74)",
 		marginRight: "16px",
+	};
+
+	const iconStyle3 = {
+		fontSize: "18px",
+		color: "rgb(246,196,74)",
+		marginRight: "8px",
 	};
 
 	//Functions to render
@@ -48,8 +57,67 @@ function Results() {
 		return totalSpentSum;
 	};
 
-	const totalAmountSpentPerEater = () => {
-		return totalAmountSpentAll() / totalNumOfEatersAll();
+	const totalAmountPerEater = () => {
+		return (
+			Math.round((totalAmountSpentAll() / totalNumOfEatersAll()) * 100) / 100
+		);
+	};
+
+	const PersonBreakdown = () => {
+		return personState.map((person) => {
+			const indName = person.name;
+			const indEaters = person.eaters;
+			const indSpent = person.total;
+
+			const indImgSrc = () => {
+				const personIndex = people.findIndex((obj) => obj.name === indName);
+				return people[personIndex].imgSrc;
+			};
+
+			const indOwes = () => {
+				return (
+					Math.round((totalAmountPerEater() * indEaters - indSpent) * 100) / 100
+				);
+			};
+
+			const RenderIndOwed = () => {
+				if (indOwes() < 0) {
+					return (
+						<li className="breakdownPersonData">
+							<FontAwesomeIcon style={iconStyle3} icon={faArrowRight} />
+							<text>
+								owed&nbsp;&nbsp;
+								<span style={{ backgroundColor: "rgb(80,200,60)" }}>
+									&nbsp;&nbsp;${-indOwes()}&nbsp;&nbsp;
+								</span>
+							</text>
+						</li>
+					);
+				} else {
+					return (
+						<li className="breakdownPersonData">
+							<FontAwesomeIcon style={iconStyle3} icon={faArrowLeft} />
+							<text>
+								owes&nbsp;&nbsp;
+								<span style={{ backgroundColor: "rgb(190,38,38)" }}>
+									&nbsp;&nbsp;${indOwes()}&nbsp;&nbsp;
+								</span>
+							</text>
+						</li>
+					);
+				}
+			};
+
+			return (
+				<li className="personBreakdownListItem">
+					<img className="listAvatar" src={indImgSrc()} alt={indName}></img>
+					<text className="personName">{indName}</text>
+					<li className="breakdownPersonData">{indEaters} eaters</li>
+					<li className="breakdownPersonData">spent ${indSpent}</li>
+					<RenderIndOwed />
+				</li>
+			);
+		});
 	};
 
 	return (
@@ -85,7 +153,7 @@ function Results() {
 									icon={faMoneyBillTransfer}
 								/>
 								<text className="globalTotalsText">
-									${totalAmountSpentPerEater()} Per Eater
+									${totalAmountPerEater()} Per Eater
 								</text>
 							</li>
 						</ul>
@@ -93,34 +161,7 @@ function Results() {
 					<div className="breakdownByFamilyArea">
 						<text className="outputAreaHeader">Breakdown By Person</text>
 						<ul className="personBreakdownList">
-							<li className="personBreakdownListItem">
-								<img className="listAvatar" src={JoelImg}></img>
-								<text className="personName">Joel</text>
-								<li className="breakdownPersonData">6 eaters</li>
-								<li className="breakdownPersonData">spent $220.75</li>
-								<li className="breakdownPersonData">owes $30.72</li>
-							</li>
-							<li className="personBreakdownListItem">
-								<img className="listAvatar" src={JoelImg}></img>
-								<text className="personName">Joel</text>
-								<li className="breakdownPersonData">6 eaters</li>
-								<li className="breakdownPersonData">spent $220.75</li>
-								<li className="breakdownPersonData">owes $30.72</li>
-							</li>
-							<li className="personBreakdownListItem">
-								<img className="listAvatar" src={JoelImg}></img>
-								<text className="personName">Joel</text>
-								<li className="breakdownPersonData">6 eaters</li>
-								<li className="breakdownPersonData">spent $220.75</li>
-								<li className="breakdownPersonData">owes $30.72</li>
-							</li>
-							<li className="personBreakdownListItem">
-								<img className="listAvatar" src={JoelImg}></img>
-								<text className="personName">Joel</text>
-								<li className="breakdownPersonData">6 eaters</li>
-								<li className="breakdownPersonData">spent $220.75</li>
-								<li className="breakdownPersonData">owes $30.72</li>
-							</li>
+							<PersonBreakdown />
 						</ul>
 					</div>
 				</div>
