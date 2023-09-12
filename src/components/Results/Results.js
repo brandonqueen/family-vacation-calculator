@@ -36,7 +36,20 @@ function Results() {
 			(acc, currentVal) => acc + currentVal,
 			0
 		);
-		return String(eatersSum);
+		return eatersSum;
+	};
+
+	const totalAmountSpentAll = () => {
+		const totalSpentArray = personState.map((person) => person.total);
+		const totalSpentSum = totalSpentArray.reduce(
+			(acc, currentVal) => acc + currentVal,
+			0
+		);
+		return totalSpentSum;
+	};
+
+	const totalAmountSpentPerEater = () => {
+		return totalAmountSpentAll() / totalNumOfEatersAll();
 	};
 
 	return (
@@ -62,14 +75,18 @@ function Results() {
 							</li>
 							<li className="globalTotalsRow">
 								<FontAwesomeIcon style={iconStyle2} icon={faCreditCard} />
-								<text className="globalTotalsText">$1,523.66 Spent</text>
+								<text className="globalTotalsText">
+									${totalAmountSpentAll()} Spent
+								</text>
 							</li>
 							<li className="globalTotalsRow">
 								<FontAwesomeIcon
 									style={iconStyle2}
 									icon={faMoneyBillTransfer}
 								/>
-								<text className="globalTotalsText">$60.95 Per Eater</text>
+								<text className="globalTotalsText">
+									${totalAmountSpentPerEater()} Per Eater
+								</text>
 							</li>
 						</ul>
 					</div>
