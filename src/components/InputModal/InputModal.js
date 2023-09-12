@@ -45,7 +45,7 @@ function InputModal({ onModalClick, selectedFamily }) {
 
 	useEffect(() => {
 		dispatch(updateTotals());
-	}, [expenses, total]);
+	}, [expenses, total, dispatch]);
 
 	//handle click/"Enter" functions
 	const handleEatersInput = () => {
@@ -124,8 +124,6 @@ function InputModal({ onModalClick, selectedFamily }) {
 			</ul>
 		);
 	};
-
-	const expensesTotalled = () => {};
 
 	//JSX for UI
 	return (
