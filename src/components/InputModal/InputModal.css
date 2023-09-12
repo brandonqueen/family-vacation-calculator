@@ -1,7 +1,5 @@
 .modal {
     position: fixed;
-    /* top: 50%;
-    transform: translateY(-50%); */
     width: 80vw;
     min-height: 90vh;
     max-height: 90vh;
@@ -88,32 +86,13 @@
     margin-bottom: 16px;
     }
 
-    @media (max-width: 599px) {
-      .headerBar {
-        flex-direction: column;
-        align-items: flex-start;
-        position: static;
-      }
-    
-      .modalTitle {
-        position: static;
-        align-self: center;
-      }
-    
-      .avatarSmall {
-        position: static;
-        align-self: center;
-        margin: 16px 8px 8px 8px;
-        }
-    }
-
     .lineDivider {
       width: .5px;
       background-color: darkgrey;
       margin-inline: 24px; 
     }
 
-    @media (max-width: 877px) {
+    @media (max-width: 986px) {
       .lineDivider {
         display: none;
       }
@@ -124,11 +103,14 @@
       margin-top: 20px;
       display: flex;
       flex: 1;
+      max-width: 100%;
       flex-direction: row;
       flex-wrap: wrap;
     }
 
    .expenseAreaHeader {
+      display: flex;
+      flex-wrap: wrap;
       font-size: 20px;
       font-weight: bold;
       padding-bottom: 16px;
@@ -138,7 +120,7 @@
     .inputSection {
       flex: 1;
       min-width: 350px;
-      overflow: scroll;
+      overflow-wrap: normal;
       flex-wrap: wrap;
     }
 
@@ -199,12 +181,6 @@
       min-width: 350px;
     }
 
-    @media (max-width: 599px) {
-      .loggedExpensesSection {
-       margin-top: 32px;
-      }
-    }
-
     .loggedExpensesParentContainer {
       display: flex;
       flex: 1;
@@ -219,7 +195,7 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      width: 100%;
+      max-width: 100%;
     }
 
     .expenseRowLi {
@@ -257,6 +233,12 @@
       cursor: pointer;
     }
 
+    .removeExpenseButton:hover {
+      color: rgb(255, 255, 255);;
+      background-color: rgb(121, 35, 251);;
+      border-color: rgb(121, 35, 251);
+    }
+
     .bottomRow {
       display: flex;
 			flex-direction: row;
@@ -264,19 +246,74 @@
     }
 
     .totalText {
-      text-align: right;
+      text-align: left;
       align-self: center;
       font-weight: 900;
       font-size: 20px;
       flex: 1;
     }
 
-    @media (max-width: 599px) {
+    @media (max-width: 924px) {
+      .headerBar {
+        flex-direction: column;
+        align-items: flex-start;
+        position: static;
+      }
+      .modalTitle {
+        position: static;
+        align-self: center;
+      }
+      .modalExpensesSection {
+        padding: 0px;
+        margin-top: 0px;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+      .inputSection {
+        flex-direction: column;
+        min-width: 0px;
+        max-width: 100%;
+        flex-wrap: wrap;
+      }
+      .expenseInputSubsection {
+        padding-left: 8px;
+        padding-bottom: 24px;
+      }
+      .toHide {
+        display: none;
+      }
+      .avatarSmall {
+        position: static;
+        align-self: center;
+        margin: 16px 8px 8px 8px;
+        }
+      .loggedExpensesParentContainer {
+        padding: 0px 0px 24px 8px;
+        max-width: 100%;
+        flex: 1;
+        flex-direction: column;
+      }
+      .loggedExpensesSection {
+        margin-top: 32px;
+        flex: 1;
+        flex-direction: column;
+        max-width: 100%;
+        min-width: 0;
+       }
+       .expenseList {
+        justify-content: flex-start;
+        flex-direction: column;
+       }
       .bottomRow {
         flex-direction: column;
-        justify-content: center;
+        margin-top: 24px;
       }
-
+      .expenseRowLi {
+        max-width: 100%;
+        flex:1;
+      }
       .totalText {
         text-align: left;
         align-self: flex-start;

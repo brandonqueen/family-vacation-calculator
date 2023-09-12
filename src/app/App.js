@@ -22,7 +22,7 @@ function App() {
 					onModalClick={modalToggle}
 				/>
 			)}
-			<h1>Koch Family Vacation Calculator</h1>
+			<h1>Family Vacation Expenses Calculator</h1>
 			<Patriarchs />
 			<FamilyHeads onModalClick={modalToggle} />
 			<Results />

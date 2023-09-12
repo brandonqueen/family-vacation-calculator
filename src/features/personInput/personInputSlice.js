@@ -15,7 +15,7 @@ const initialState = [
 	},
 	{
 		name: "Katie",
-		eaters: 3,
+		eaters: 3.5,
 		expenses: [],
 		total: 0,
 	},
@@ -76,6 +76,9 @@ const personInputSlice = createSlice({
 				personObj.total = sum;
 			});
 		},
+		resetState: (state) => {
+			return (state = initialState);
+		},
 	},
 });
 
@@ -85,6 +88,7 @@ export const {
 	removeExpense,
 	clearExpenses,
 	updateTotals,
+	resetState,
 } = personInputSlice.actions;
 
 export default personInputSlice.reducer;

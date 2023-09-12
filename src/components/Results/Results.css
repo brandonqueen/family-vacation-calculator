@@ -143,6 +143,18 @@
     margin-inline: 16px;
   }
 
+  .toWrapHeader {
+    display: flex;
+    flex: 2
+  }
+
+  .toWrap {
+    display: flex;
+    flex-direction: row;
+    flex: 4;
+    align-items: center;
+  }
+
   .breakdownPersonData {
     font-size: 18px;
     color: white;
@@ -152,13 +164,76 @@
     margin-inline: 16px;
   }
 
-  @media (max-width: 780px) {
+  .resetButton {
+    padding: 12px;
+    width: 20%;
+    min-width: 100px;
+    margin: 20px;
+    align-self: center;
+    justify-self: center;
+    background-color: rgb(30,30,30);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    color:rgb(230, 230, 230);
 
+    border-radius: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color:rgb(30,30,30);
 
-    
-    /* * * * Update Styles for Mobile Here * * *  */
+    cursor: pointer;
+  }
 
+  .resetButton:hover{
+    background-color: rgb(125, 50, 240);
+    border-color: rgb(125, 50, 240);
+    color: white;
+  }
 
+  @media (max-width: 930px) {
+    .resultsOutputArea {
+      flex-direction: column;
+    }
+    .globalTotalsArea {
+      margin-right: 0px;
+      border-radius: 12px 12px 0px 0px;
+    }
+    .globalTotalsList {
+      margin-bottom: 24px;
+      align-items: center;
+    }
+    .breakdownByFamilyArea {
+      margin-left: 0px;
+      border-radius: 0px 0px 12px 12px;
+    }
+    .personBreakdownListItem {
+      flex-direction: column;
+      padding: 24px 0px 32px 0px;
+    }
+    .breakdownPersonData {
+      margin-inline: 0px;
+      font-size: 20px;
 
+    }
+    .toWrap {
+      flex-direction: column;
+    }
+    .toWrapHeader {
+      flex-direction: column;
+    }
+    .listAvatar {
+      min-width: 70px;
+      max-width: 70px;
+      min-height: 70px;
+      max-height: 70px;
+    }
+  
+    .personName {
+      font-size: 24px;
+      margin-inline: 0px;
+      margin: 12px;
+      text-align: center;
+    }
 
   }

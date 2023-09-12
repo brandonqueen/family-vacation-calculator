@@ -1,5 +1,9 @@
 import React from "react";
 import "./Results.css";
+import { people } from "../../const/people";
+import { useSelector, useDispatch } from "react-redux";
+import { resetState } from "../../features/personInput/personInputSlice";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faSquarePollVertical,
@@ -9,12 +13,12 @@ import {
 	faArrowRight,
 	faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
-import JoelImg from "../../assets/images/Joel.jpg";
-import { useSelector } from "react-redux";
-import { people } from "../../const/people";
 
 function Results() {
-	//Access state
+	//Dispatch
+	const dispatch = useDispatch();
+
+	//Get state
 	const personState = useSelector((state) => {
 		return state.personInput;
 	});
@@ -36,6 +40,11 @@ function Results() {
 		fontSize: "18px",
 		color: "rgb(246,196,74)",
 		marginRight: "8px",
+	};
+
+	//onClick functions
+	const handleResetClick = () => {
+		dispatch(resetState());
 	};
 
 	//Functions to render
@@ -63,6 +72,7 @@ function Results() {
 		);
 	};
 
+	//Individual Breakdown to Render
 	const PersonBreakdown = () => {
 		return personState.map((person) => {
 			const indName = person.name;
@@ -110,11 +120,15 @@ function Results() {
 
 			return (
 				<li className="personBreakdownListItem">
-					<img className="listAvatar" src={indImgSrc()} alt={indName}></img>
-					<text className="personName">{indName}</text>
-					<li className="breakdownPersonData">{indEaters} eaters</li>
-					<li className="breakdownPersonData">spent ${indSpent}</li>
-					<RenderIndOwed />
+					<div className="toWrapHeader">
+						<img className="listAvatar" src={indImgSrc()} alt={indName}></img>
+						<text className="personName">{indName}</text>
+					</div>
+					<div className="toWrap">
+						<li className="breakdownPersonData">{indEaters} eaters</li>
+						<li className="breakdownPersonData">spent ${indSpent}</li>
+						<RenderIndOwed />
+					</div>
 				</li>
 			);
 		});
@@ -163,6 +177,9 @@ function Results() {
 						<ul className="personBreakdownList">
 							<PersonBreakdown />
 						</ul>
+						<button className="resetButton" onClick={handleResetClick}>
+							Reset All Data
+						</button>
 					</div>
 				</div>
 			</div>

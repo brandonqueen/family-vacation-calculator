@@ -183,12 +183,12 @@ function InputModal({ onModalClick, selectedFamily }) {
 								Add Expense
 							</button>
 						</div>
-						<div style={{ padding: "24px" }}></div>
+						<div className="toHide" style={{ padding: "24px" }}></div>
 						<text className="expenseAreaHeader">
-							How Many "Eaters" in Your Family?
+							Number of eaters in your family:
 						</text>
 						<div className="expenseInputSubsection">
-							<text className="expensesText">Eaters: {eaters}</text>
+							<text className="expensesText">Current Eaters: {eaters}</text>
 							<input
 								className="input"
 								type="text"
@@ -217,10 +217,10 @@ function InputModal({ onModalClick, selectedFamily }) {
 							<RenderExpenses />
 						</div>
 						<div className="bottomRow">
+							<text className="totalText">Total: ${total}</text>
 							<button className="button" onClick={handleExpenseClearClick}>
 								Clear All
 							</button>
-							<text className="totalText">Total: ${total}</text>
 						</div>
 					</div>
 				</div>
