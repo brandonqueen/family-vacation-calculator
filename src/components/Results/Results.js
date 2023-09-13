@@ -63,7 +63,7 @@ function Results() {
 			(acc, currentVal) => acc + currentVal,
 			0
 		);
-		return totalSpentSum;
+		return Math.round(totalSpentSum * 100) / 100;
 	};
 
 	const totalAmountPerEater = () => {
