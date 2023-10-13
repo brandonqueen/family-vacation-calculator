@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/family-vacation-calculator/static/css/main.923f7ef9.css",
-    "main.js": "/family-vacation-calculator/static/js/main.a43f5254.js",
+    "main.css": "/family-vacation-calculator/static/css/main.dc43b226.css",
+    "main.js": "/family-vacation-calculator/static/js/main.f1ff24a0.js",
     "static/js/787.f90b457f.chunk.js": "/family-vacation-calculator/static/js/787.f90b457f.chunk.js",
     "static/media/background.jpg": "/family-vacation-calculator/static/media/background.945a8bf0825b6a8af452.jpg",
     "static/media/Melody.png": "/family-vacation-calculator/static/media/Melody.84622ac19bdf458870e7.png",
@@ -11,12 +11,12 @@
     "static/media/Evan.png": "/family-vacation-calculator/static/media/Evan.3bbff4a20dd84b9bda0c.png",
     "static/media/Josh.png": "/family-vacation-calculator/static/media/Josh.fc522260622ab4d3a649.png",
     "index.html": "/family-vacation-calculator/index.html",
-    "main.923f7ef9.css.map": "/family-vacation-calculator/static/css/main.923f7ef9.css.map",
-    "main.a43f5254.js.map": "/family-vacation-calculator/static/js/main.a43f5254.js.map",
+    "main.dc43b226.css.map": "/family-vacation-calculator/static/css/main.dc43b226.css.map",
+    "main.f1ff24a0.js.map": "/family-vacation-calculator/static/js/main.f1ff24a0.js.map",
     "787.f90b457f.chunk.js.map": "/family-vacation-calculator/static/js/787.f90b457f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.923f7ef9.css",
-    "static/js/main.a43f5254.js"
+    "static/css/main.dc43b226.css",
+    "static/js/main.f1ff24a0.js"
   ]
 }
