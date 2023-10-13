@@ -67,13 +67,12 @@ const personInputSlice = createSlice({
 			state[personIndex].expenses = [];
 		},
 		updateTotals: (state) => {
-			let total;
 			state.map((personObj) => {
 				const values = personObj.expenses.map((expense) => {
 					return expense.amount;
 				});
 				const sum = values.reduce((acc, currentValue) => acc + currentValue, 0);
-				personObj.total = sum;
+				return (personObj.total = sum);
 			});
 		},
 		resetState: (state) => {
