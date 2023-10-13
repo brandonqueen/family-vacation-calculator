@@ -133,6 +133,10 @@
     object-fit: cover;
     flex: 1;
     margin-inline: 16px;
+    background-image: url('../../assets/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .personName {

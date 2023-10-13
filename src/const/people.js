@@ -1,8 +1,8 @@
-import JoelImg from "../assets/images/Joel.jpg";
-import JoshImg from "../assets/images/Josh.jpg";
-import KatieImg from "../assets/images/Katie.jpg";
-import MelodyImg from "../assets/images/Melody.jpg";
-import EvanImg from "../assets/images/Evan.jpg";
+import JoelImg from "../assets/images/Joel.png";
+import JoshImg from "../assets/images/Josh.png";
+import KatieImg from "../assets/images/Katie.png";
+import MelodyImg from "../assets/images/Melody.png";
+import EvanImg from "../assets/images/Evan.png";
 
 export const people = [
 	{

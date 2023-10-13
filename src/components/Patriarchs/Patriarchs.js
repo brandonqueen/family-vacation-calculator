@@ -1,5 +1,5 @@
 import React from "react";
-import PatriarchImg from "../../assets/images/Patriarchs.jpg";
+import PatriarchImg from "../../assets/images/Patriarchs.png";
 import Card from "../Card/Card";
 import "./Patriarchs.css";
 
@@ -13,7 +13,7 @@ function Patriarchs() {
 	return (
 		<Card onClick={handleClick}>
 			<h2>The Patriarchs</h2>
-			<img src={PatriarchImg} className="avatar" alt="patriarch image"/>
+			<img src={PatriarchImg} className="avatar" alt="patriarchs" />
 			<text className="patCap">
 				**Exempt from bill-split!** (image here for honorary purposes)
 			</text>
